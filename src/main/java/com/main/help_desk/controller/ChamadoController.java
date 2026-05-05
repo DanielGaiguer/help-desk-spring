@@ -5,8 +5,11 @@
 package com.main.help_desk.controller;
 
 import com.main.help_desk.model.ChamadoDTO;
+import com.main.help_desk.model.ChamadoFuncionarioDTO;
 import com.main.help_desk.service.ChamadoService;
+import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -21,5 +24,10 @@ public class ChamadoController {
     @PostMapping
     public String addChamado(@RequestBody ChamadoDTO chamado){
         return service.addChamado(chamado);
+    }
+    
+    @GetMapping("/abertos")
+    public List<ChamadoFuncionarioDTO> getChamadosAbertos(){
+        return service.getChamadosAbertos();
     }
 }

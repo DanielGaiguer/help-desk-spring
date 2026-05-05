@@ -5,7 +5,9 @@
 package com.main.help_desk.service;
 
 import com.main.help_desk.model.ChamadoDTO;
+import com.main.help_desk.model.ChamadoFuncionarioDTO;
 import com.main.help_desk.repository.ChamadoDAO;
+import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -28,5 +30,9 @@ public class ChamadoService {
         chamado.setPrioridade(prioridade);
 
         return repository.addChamado(chamado);
+    }
+    
+    public List<ChamadoFuncionarioDTO> getChamadosAbertos(){
+        return repository.getChamadosAbertos();
     }
 }
