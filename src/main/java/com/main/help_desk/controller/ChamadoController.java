@@ -34,7 +34,7 @@ public class ChamadoController {
     }
     
     @PutMapping("/{id}/concluir")
-    public String resolverChamado(@PathVariable int id){
-        return service.resolverChamado(id);
+    public String resolverChamado(@PathVariable int id, @RequestBody ChamadoDTO dto){
+        return service.resolverChamado(id, dto.getSolucaoAplicada());
     }
 }

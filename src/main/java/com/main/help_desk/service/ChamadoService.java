@@ -36,11 +36,15 @@ public class ChamadoService {
         return repository.getChamadosAbertos();
     }
     
-    public String resolverChamado(int id){
+    public String resolverChamado(int id, String solucaoAplicada){
         if(repository.estaResolvido(id)){
             return "Este chamado já está resolvido.";
         }
         
-        return repository.resolverChamado(id);
+        if(solucaoAplicada.isEmpty()){
+            return "É obrigatório passar a solução aplicada para o chamado";
+        }
+        
+        return repository.resolverChamado(id, solucaoAplicada);
     }
 }

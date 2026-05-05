@@ -56,6 +56,7 @@ public class ChamadoDAO {
                 chamadoAberto.setDataAbertura(rs.getTimestamp("data_abertura"));
                 chamadoAberto.setNomeFuncionario(rs.getString("nome"));
                 chamadoAberto.setEmailFuncionario(rs.getString("email"));
+                chamadoAberto.setSolucaoAplicada(rs.getString("solucao_aplicada"));
                 dados.add(chamadoAberto);
             }
             
@@ -93,16 +94,17 @@ public class ChamadoDAO {
         return true;
     }
     
-    public String resolverChamado(int id){
+    public String resolverChamado(int id, String solucaoAplicada){
         try{
             Connection conn = Conexao.conectar();
             PreparedStatement stmt = null;
             ResultSet rs = null;
             String status = null;
             
-            stmt = conn.prepareStatement("update chamados set status = 'Resolvido' where id = ?");
+            stmt = conn.prepareStatement("update chamados set status = 'Resolvido', solucao_aplicada = ? where id = ?");
             
-            stmt.setInt(1, id);
+            stmt.setString(1, solucaoAplicada);
+            stmt.setInt(2, id);
             
            stmt.executeUpdate();
             

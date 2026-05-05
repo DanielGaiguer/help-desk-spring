@@ -14,6 +14,7 @@ import java.sql.Timestamp;
 public class ChamadoFuncionarioDTO {
     private String titulo;
     private String descricao;
+    private String solucaoAplicada;
     private String status;
     private String prioridade;
     private Timestamp dataAbertura;
@@ -22,17 +23,18 @@ public class ChamadoFuncionarioDTO {
 
     public ChamadoFuncionarioDTO() {
     }
-    
 
-    public ChamadoFuncionarioDTO(String titulo, String descricao, String status, String prioridade, Timestamp dataAbertura, String nomeFuncionario, String emailFuncionario) {
+    public ChamadoFuncionarioDTO(String titulo, String descricao, String solucaoAplicada, String status, String prioridade, Timestamp dataAbertura, String nomeFuncionario, String emailFuncionario) {
         this.titulo = titulo;
         this.descricao = descricao;
+        this.solucaoAplicada = solucaoAplicada;
         this.status = status;
         this.prioridade = prioridade;
         this.dataAbertura = dataAbertura;
         this.nomeFuncionario = nomeFuncionario;
         this.emailFuncionario = emailFuncionario;
     }
+ 
 
     public String getTitulo() {
         return titulo;
@@ -88,6 +90,14 @@ public class ChamadoFuncionarioDTO {
 
     public void setEmailFuncionario(String emailFuncionario) {
         this.emailFuncionario = emailFuncionario;
+    }
+
+    public String getSolucaoAplicada() {
+        return solucaoAplicada;
+    }
+
+    public void setSolucaoAplicada(String solucaoAplicada) {
+        this.solucaoAplicada = solucaoAplicada;
     }
     
     

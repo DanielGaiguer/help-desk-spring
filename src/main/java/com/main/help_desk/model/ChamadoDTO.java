@@ -15,19 +15,9 @@ public class ChamadoDTO {
     private String prioridade;
     private Timestamp dataAbertura;
     private Integer funcionarioId;
+    private String solucaoAplicada;
 
-    public Integer getFuncionarioId() {
-        return funcionarioId;
-    }
-
-    public void setFuncionarioId(Integer funcionarioId) {
-        this.funcionarioId = funcionarioId;
-    }
-
-    public ChamadoDTO() {
-    }
-
-    public ChamadoDTO(Integer id, String titulo, String descricao, String status, String prioridade, Timestamp dataAbertura, Integer funcionarioId) {
+    public ChamadoDTO(Integer id, String titulo, String descricao, String status, String prioridade, Timestamp dataAbertura, Integer funcionarioId, String solucaoAplicada) {
         this.id = id;
         this.titulo = titulo;
         this.descricao = descricao;
@@ -35,6 +25,11 @@ public class ChamadoDTO {
         this.prioridade = prioridade;
         this.dataAbertura = dataAbertura;
         this.funcionarioId = funcionarioId;
+        this.solucaoAplicada = solucaoAplicada;
+    }
+
+
+    public ChamadoDTO() {
     }
 
     public String getTitulo() {
@@ -85,7 +80,22 @@ public class ChamadoDTO {
         this.dataAbertura = dataAbertura;
     }
 
+    
+    public String getSolucaoAplicada() {
+        return solucaoAplicada;
+    }
 
+    public void setSolucaoAplicada(String solucaoAplicada) {
+        this.solucaoAplicada = solucaoAplicada;
+    }
+
+    public Integer getFuncionarioId() {
+        return funcionarioId;
+    }
+
+    public void setFuncionarioId(Integer funcionarioId) {
+        this.funcionarioId = funcionarioId;
+    }
     
     
 }
