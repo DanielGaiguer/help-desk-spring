@@ -10,7 +10,9 @@ import com.main.help_desk.service.ChamadoService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -29,5 +31,10 @@ public class ChamadoController {
     @GetMapping("/abertos")
     public List<ChamadoFuncionarioDTO> getChamadosAbertos(){
         return service.getChamadosAbertos();
+    }
+    
+    @PutMapping("/{id}/concluir")
+    public String resolverChamado(@PathVariable int id){
+        return service.resolverChamado(id);
     }
 }

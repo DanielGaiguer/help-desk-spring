@@ -65,4 +65,53 @@ public class ChamadoDAO {
         
         return dados;
     }
+    
+    public boolean estaResolvido(int id){
+        try{
+            Connection conn = Conexao.conectar();
+            PreparedStatement stmt = null;
+            ResultSet rs = null;
+            String status = null;
+            
+            stmt = conn.prepareStatement("Select status from chamados where id = ?");
+            
+            stmt.setInt(1, id);
+            
+            rs = stmt.executeQuery();
+            
+            if (rs.next()){
+                status = rs.getString("status");
+                if (!"Resolvido".equals(status)) return false;
+            }
+            
+            
+        }catch(SQLException e){
+            e.printStackTrace();
+            return false;
+        }
+        
+        return true;
+    }
+    
+    public String resolverChamado(int id){
+        try{
+            Connection conn = Conexao.conectar();
+            PreparedStatement stmt = null;
+            ResultSet rs = null;
+            String status = null;
+            
+            stmt = conn.prepareStatement("update chamados set status = 'Resolvido' where id = ?");
+            
+            stmt.setInt(1, id);
+            
+           stmt.executeUpdate();
+            
+            
+        }catch(SQLException e){
+            e.printStackTrace();
+            return "Erro ao mudar status do chamado.";
+        }
+        
+        return "Chamado resolvido com sucesso!";
+    }
 }

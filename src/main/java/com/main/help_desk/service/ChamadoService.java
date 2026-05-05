@@ -35,4 +35,12 @@ public class ChamadoService {
     public List<ChamadoFuncionarioDTO> getChamadosAbertos(){
         return repository.getChamadosAbertos();
     }
+    
+    public String resolverChamado(int id){
+        if(repository.estaResolvido(id)){
+            return "Este chamado já está resolvido.";
+        }
+        
+        return repository.resolverChamado(id);
+    }
 }
