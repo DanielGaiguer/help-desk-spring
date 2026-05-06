@@ -35,6 +35,13 @@
 			<artifactId>spring-boot-starter-webmvc</artifactId>
 		</dependency>
 
+                <dependency>
+                    <groupId>io.jsonwebtoken</groupId>
+                    <artifactId>jjwt</artifactId>
+                    <version>0.13.0</version>
+                    <scope>compile</scope>
+                </dependency>
+
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-devtools</artifactId>
@@ -51,6 +58,12 @@
 			<artifactId>spring-boot-starter-webmvc-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+	 <dependency>
+	  <groupId>me.ahoo.cosec</groupId>
+	  <artifactId>cosec-jwt</artifactId>
+	  <version>3.0.0</version>
+	  <type>jar</type>
+	 </dependency>
 	</dependencies>
 
 	<build>
