@@ -18,8 +18,14 @@ public class UsuarioController {
     @Autowired
     private UsuarioService service;
     
-    @PostMapping
+    @PostMapping("/criar")
     public String criarUsuario(@RequestBody UsuarioDTO usuario){
         return service.criarUsuario(usuario);
     }
+    
+    @PostMapping("login")
+    public UsuarioDTO logarUsuario(@RequestBody UsuarioDTO usuario){
+        return service.logarUsuario(usuario);
+    }
+   
 }

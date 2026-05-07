@@ -17,4 +17,8 @@ public class UsuarioService {
     public String criarUsuario(UsuarioDTO usuario){
         return repository.criarUsuario(usuario);
     }
+    
+    public UsuarioDTO logarUsuario(UsuarioDTO usuario){
+        return repository.login(usuario);
+    }
 }
