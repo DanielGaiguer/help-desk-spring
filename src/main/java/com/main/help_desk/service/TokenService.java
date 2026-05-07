@@ -46,12 +46,10 @@ public class TokenService {
     }
     
     public Claims extrairClaims(String token) {
-        // Analisa o token com a chave secreta
         return Jwts.parser()
                 .setSigningKey(getSignKey())
                 .build()
                 .parseClaimsJws(token)
-                // Retorna o corpo do token (claims)
                 .getBody();
     }
 }
