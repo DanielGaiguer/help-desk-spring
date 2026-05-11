@@ -5,6 +5,7 @@
 package com.main.help_desk.controller;
 
 import com.main.help_desk.model.UsuarioDTO;
+import com.main.help_desk.service.TokenService;
 import com.main.help_desk.service.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -18,14 +19,18 @@ public class UsuarioController {
     @Autowired
     private UsuarioService service;
     
+    @Autowired
+    private TokenService serviceToken;
+    
     @PostMapping("/criar")
     public String criarUsuario(@RequestBody UsuarioDTO usuario){
         return service.criarUsuario(usuario);
     }
     
     @PostMapping("login")
-    public UsuarioDTO logarUsuario(@RequestBody UsuarioDTO usuario){
-        return service.logarUsuario(usuario);
+    public String logarUsuario(@RequestBody UsuarioDTO usuario){
+        service.logarUsuario(usuario);
+        return serviceToken.getToken(usuario);
     }
    
 }

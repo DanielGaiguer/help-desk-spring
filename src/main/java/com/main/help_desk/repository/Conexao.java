@@ -6,7 +6,7 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class Conexao {
- public static final String url = "jdbc:mysql://localhost:3306/help_desk";
+    public static final String url = "jdbc:mysql://localhost:3306/help_desk";
     public static final String user = "root";
     public static final String senha = "Daniboy2@";
     private static Connection conn = null;
