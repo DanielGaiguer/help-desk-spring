@@ -44,7 +44,12 @@ public class ChamadoController {
     }
     
     @PutMapping("/{id}/concluir")
-    public String resolverChamado(@PathVariable int id, @RequestBody ChamadoDTO dto){
-        return service.resolverChamado(id, dto.getSolucaoAplicada());
+    public String resolverChamado(@PathVariable int id, @RequestBody ChamadoDTO dto, @RequestHeader("Authorization") String auth){
+        String token = auth.replace("Bearer ", "");
+        if (tokenService.validToken(token)){
+            return service.resolverChamado(id, dto.getSolucaoAplicada());  
+        }else{
+            return "É necessário estar autorizado";
+        }
     }
 }
